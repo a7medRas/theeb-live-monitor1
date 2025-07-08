@@ -1,195 +1,0 @@
-<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8">
-<title>لوحة المذيعين THEEB</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
-<style>
-body { font-family: 'Cairo', sans-serif; margin:0; padding:20px; background:#f4f4f4; }
-.container { max-width: 1300px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; }
-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
-th, td { padding: 8px; border: 1px solid #ccc; text-align: center; }
-input, select { padding: 6px; margin: 5px; }
-button { padding: 6px 10px; }
-tr:hover { background-color: #f0f0f0; }
-.dark-mode { background: #121212; color: #eee; }
-.dark-mode .container { background: #1e1e1e; }
-.dark-mode table, .dark-mode th, .dark-mode td { border-color: #444; }
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes buttonPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-button:hover {
-  background-color: #e0e0e0;
-  animation: buttonPulse 0.5s ease-in-out;
-}
-tr {
-  animation: fadeIn 0.4s ease forwards;
-}
-
-
-a:hover {
-  transition: color 0.3s ease;
-  color: #ff9800;
-}
-a::before {
-  content: "✨ ";
-}
-a {
-  text-decoration: none;
-  font-weight: bold;
-}
-td a {
-  display: inline-block;
-  transition: transform 0.2s ease;
-}
-td a:hover {
-  transform: scale(1.05);
-  text-shadow: 0 0 5px gold;
-}
-
-</style>
-<script>
-function toggleDark() { document.body.classList.toggle('dark-mode'); }
-function search() {
-  let input = document.getElementById("searchInput").value.toLowerCase();
-  let rows = document.querySelectorAll("tbody tr");
-  rows.forEach(row => {
-    row.style.display = row.innerText.toLowerCase().includes(input) ? "" : "none";
-  });
-}
-function filter() {
-  let job = document.getElementById("jobFilter").value;
-  let rating = document.getElementById("ratingFilter").value;
-  document.querySelectorAll("tbody tr").forEach(row => {
-    let jobCell = row.cells[6].innerText;
-    let rate = parseFloat(row.cells[10].innerText);
-    row.style.display = (!job || jobCell === job) && (!rating || rate >= parseFloat(rating)) ? "" : "none";
-  });
-}
-function addAnnouncer() {
-  alert("تم فتح نموذج إضافة مذيع (خاص بالمدير فقط)");
-}
-</script></head><body>
-<div class="container">
-<h2>لوحة بيانات المذيعين – THEEB</h2>
-<div>
-  🔍 <input id="searchInput" type="text" onkeyup="search()" placeholder="بحث...">
-  📂 <select id="jobFilter" onchange="filter()">
-    <option value="">كل الوظائف</option>
-    <option value="مذيع">مذيع</option>
-    <option value="وكيل">وكيل</option>
-    <option value="وكيله">وكيله</option>
-    <option value="مشرفه">مشرفه</option>
-  </select>
-  ⭐ <select id="ratingFilter" onchange="filter()">
-    <option value="">كل التقييمات</option>
-    <option value="4.8">4.8+</option>
-    <option value="4.5">4.5+</option>
-  </select>
-  <button onclick="toggleDark()">🌙 <span style='font-weight:bold;'>الوضع الليلي</span></button>
-  <button onclick="addAnnouncer()">➕ <span style='font-weight:bold;'>إضافة مذيع</span></button>
-</div>
-<table><thead>
-<tr><th>الاسم</th><th>UID</th><th>Likee ID</th><th>الفاصوليا</th><th>الساعات</th><th>الأيام</th>
-<th>الوظيفة</th><th>الراتب</th><th>مكافآت</th><th>خصومات</th><th>التقييم</th><th>الفاتورة</th></tr>
-</thead><tbody><tr><td><a href="profiles/2634556871.html" target="_blank"> الشـيـخ ابـوعدى</a></td>
-    <td>2634556871</td><td>560282169</td><td>0</td><td>0</td><td>0</td><td>وكيل</td>
-    <td>0</td><td>0</td><td>0</td><td>4.2</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ الشـيـخ ابـوعدى')">عرض</button></td></tr><tr><td><a href="profiles/2634556872.html" target="_blank"> فو่̲໑ڪཻـس°ᵀᴴᴱᴱᴮ°</a></td>
-    <td>2634556872</td><td>820834145</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>3.6</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ فو่̲໑ڪཻـس°ᵀᴴᴱᴱᴮ°')">عرض</button></td></tr><tr><td><a href="profiles/2634556873.html" target="_blank"> Rody ᵀᴴᴱᴱᴮ</a></td>
-    <td>2634556873</td><td>786669423</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>4.6</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ Rody ᵀᴴᴱᴱᴮ')">عرض</button></td></tr><tr><td><a href="profiles/2634556874.html" target="_blank">🏅 Deja💋ᵀᴴᴱᴱᴮ</a></td>
-    <td>2634556874</td><td>947393638</td><td>0</td><td>0</td><td>0</td><td>مشرفه</td>
-    <td>0</td><td>0</td><td>0</td><td>5.0</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ Deja💋ᵀᴴᴱᴱᴮ')">عرض</button></td></tr><tr><td><a href="profiles/2634556875.html" target="_blank"> باشممرضه💉ᵀʰᵉᵉᵇ</a></td>
-    <td>2634556875</td><td>53Asm</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>3.1</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ باشممرضه💉ᵀʰᵉᵉᵇ')">عرض</button></td></tr><tr><td><a href="profiles/2634556876.html" target="_blank"> أنا💅الشيخهᵀʰᵉᵉᵇ</a></td>
-    <td>2634556876</td><td>58opp</td><td>0</td><td>0</td><td>0</td><td>وكيله</td>
-    <td>0</td><td>0</td><td>0</td><td>4.7</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ أنا💅الشيخهᵀʰᵉᵉᵇ')">عرض</button></td></tr><tr><td><a href="profiles/2634556877.html" target="_blank"> ꪔᖇ.ꪔᥲꪎ ᵀʰᵉᵉᵇ</a></td>
-    <td>2634556877</td><td>memss1234</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>4.3</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ ꪔᖇ.ꪔᥲꪎ ᵀʰᵉᵉᵇ')">عرض</button></td></tr><tr><td><a href="profiles/2634556878.html" target="_blank"> ☕جاسمن🤍ᵀʰᵉᵉᵇ</a></td>
-    <td>2634556878</td><td>Gogo100100</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>4.3</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ ☕جاسمن🤍ᵀʰᵉᵉᵇ')">عرض</button></td></tr><tr><td><a href="profiles/2634556879.html" target="_blank">🏅 بكار الاهلاوي</a></td>
-    <td>2634556879</td><td>065yuttiy</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>4.9</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ بكار الاهلاوي')">عرض</button></td></tr><tr><td><a href="profiles/2634556880.html" target="_blank"> 💋のᶜᵃᵗの🐯ᵀʰᵉᵉᵇ</a></td>
-    <td>2634556880</td><td>no_no507891</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>3.6</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ 💋のᶜᵃᵗの🐯ᵀʰᵉᵉᵇ')">عرض</button></td></tr><tr><td><a href="profiles/2634556881.html" target="_blank"> Yasmin ᵀʰᵉᵉᵇ</a></td>
-    <td>2634556881</td><td>1097073180</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>3.8</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ Yasmin ᵀʰᵉᵉᵇ')">عرض</button></td></tr><tr><td><a href="profiles/2634556882.html" target="_blank"> فرح ᵀʰᵉᵉᵇ</a></td>
-    <td>2634556882</td><td>939044719</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>4.7</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ فرح ᵀʰᵉᵉᵇ')">عرض</button></td></tr><tr><td><a href="profiles/2634556883.html" target="_blank"> فدوة. 🤍. ᵀᴴᴱᴱᴮ</a></td>
-    <td>2634556883</td><td>bobo77777</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>3.0</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ فدوة. 🤍. ᵀᴴᴱᴱᴮ')">عرض</button></td></tr><tr><td><a href="profiles/2634556884.html" target="_blank"> ♡ꪝ᥆᧗ꪖᥒ♡</a></td>
-    <td>2634556884</td><td>53A277</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>4.5</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ ♡ꪝ᥆᧗ꪖᥒ♡')">عرض</button></td></tr><tr><td><a href="profiles/2634556885.html" target="_blank">🏅 يويو .🧚ᵀʰᵉᵉᵇ</a></td>
-    <td>2634556885</td><td>mohamed_gamal232</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>4.9</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ يويو .🧚ᵀʰᵉᵉᵇ')">عرض</button></td></tr><tr><td><a href="profiles/2634556886.html" target="_blank">🏅 Roaaᵀʰᵉᵉᵇ</a></td>
-    <td>2634556886</td><td>roaa274182</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>4.8</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ Roaaᵀʰᵉᵉᵇ')">عرض</button></td></tr><tr><td><a href="profiles/2634556887.html" target="_blank"> زينه ᵀʰᵉᵉᵇ</a></td>
-    <td>2634556887</td><td>F1672016</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>3.8</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ زينه ᵀʰᵉᵉᵇ')">عرض</button></td></tr><tr><td><a href="profiles/2634556888.html" target="_blank"> ام فريده ᵀʰᵉᵉᵇ</a></td>
-    <td>2634556888</td><td>1100157602</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>3.3</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ ام فريده ᵀʰᵉᵉᵇ')">عرض</button></td></tr><tr><td><a href="profiles/2634556889.html" target="_blank"> ااااا</a></td>
-    <td>2634556889</td><td>NovelLover2001</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>3.5</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ ااااا')">عرض</button></td></tr><tr><td><a href="profiles/2634556890.html" target="_blank"> بكار الاهلاوي🌶</a></td>
-    <td>2634556890</td><td>bhgvbngv</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>3.0</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ بكار الاهلاوي🌶')">عرض</button></td></tr><tr><td><a href="profiles/2634556891.html" target="_blank"> ☕♜رٍۆحٍ♜ᵀʰᵉᵉᵇ</a></td>
-    <td>2634556891</td><td>ROOH2020</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>4.5</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ ☕♜رٍۆحٍ♜ᵀʰᵉᵉᵇ')">عرض</button></td></tr><tr><td><a href="profiles/2634556892.html" target="_blank">🏅 Malekᵀʰᵉᵉᵇ</a></td>
-    <td>2634556892</td><td>mohamed_malek99</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>5.0</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ Malekᵀʰᵉᵉᵇ')">عرض</button></td></tr><tr><td><a href="profiles/2634556893.html" target="_blank"> جوري هانم🌹ᵀʰᵉᵉᵇ</a></td>
-    <td>2634556893</td><td>theeb.1996</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>3.5</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ جوري هانم🌹ᵀʰᵉᵉᵇ')">عرض</button></td></tr><tr><td><a href="profiles/2634556894.html" target="_blank"> مريمTHEEB♥️0</a></td>
-    <td>2634556894</td><td>marim88</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>4.3</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ مريمTHEEB♥️0')">عرض</button></td></tr><tr><td><a href="profiles/2634556895.html" target="_blank"> 💞ᵀʰᵉᵉᵇ💞</a></td>
-    <td>2634556895</td><td>Theeb.2021</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>4.6</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ 💞ᵀʰᵉᵉᵇ💞')">عرض</button></td></tr><tr><td><a href="profiles/2634556896.html" target="_blank"> طبيب القلوب</a></td>
-    <td>2634556896</td><td>OsamarmaDan</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>3.6</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ طبيب القلوب')">عرض</button></td></tr><tr><td><a href="profiles/2634556897.html" target="_blank"> Amr</a></td>
-    <td>2634556897</td><td>1078713523</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>4.0</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ Amr')">عرض</button></td></tr><tr><td><a href="profiles/2634556898.html" target="_blank"> ريهانا 👑الملكه</a></td>
-    <td>2634556898</td><td>Rihannatheeb</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>3.5</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ ريهانا 👑الملكه')">عرض</button></td></tr><tr><td><a href="profiles/2634556899.html" target="_blank"> شوشو الغاليه</a></td>
-    <td>2634556899</td><td>shimaa6</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>4.6</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ شوشو الغاليه')">عرض</button></td></tr><tr><td><a href="profiles/2634556900.html" target="_blank">🏅 Mohamed Gamal</a></td>
-    <td>2634556900</td><td>715394249</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>4.9</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ Mohamed Gamal')">عرض</button></td></tr><tr><td><a href="profiles/2634556901.html" target="_blank"> رورو 💜</a></td>
-    <td>2634556901</td><td>1094466691</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>4.7</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ رورو 💜')">عرض</button></td></tr><tr><td><a href="profiles/2634556902.html" target="_blank"> معروف الأحمد</a></td>
-    <td>2634556902</td><td>1095076451</td><td>0</td><td>0</td><td>0</td><td>مذيع</td>
-    <td>0</td><td>0</td><td>0</td><td>3.1</td>
-    <td><button onclick="alert('لا توجد فواتير حالياً لـ معروف الأحمد')">عرض</button></td></tr></tbody></table>
-</div></body></html>
